@@ -94,6 +94,7 @@ public class Plateau {
         }
         return (compteurDames < 2);
     }
+
     public boolean verifierPasPlusUneDameLigne(int ligne) {
         int compteurDames = 0;
 
@@ -105,21 +106,31 @@ public class Plateau {
         }
         return (compteurDames < 2);
     }
-    public boolean verifierPasPlusUneDameDiagonaleDroite(int diagonale){
+
+    public boolean verifierPasPlusUneDameDiagonaleDroite(int diagonale) {
         int compteurDames = 0;
         int diagonaleValeurAbsolue = diagonale;
 
-        System.out.println("diagonale : "+diagonale);
-        if(diagonale<=0){
+        if (diagonale >= 0) {
+            for (int i = 0; i < (plateau.length - diagonale); i++) {
+                if(plateau[i][i + diagonale]){
+                    compteurDames = compteurDames + 1;
+                }
+                System.out.println(" i:" + i + " j" + (i + diagonale));
+            }
+        }
+        else{
             diagonaleValeurAbsolue = diagonaleValeurAbsolue*-1;
+            for (int i = diagonaleValeurAbsolue; i < plateau.length; i++) {
+                if(plateau[i][i + diagonale]){
+                    compteurDames = compteurDames + 1;
+                }
+                System.out.println(" i:" + i + " j" + (i + diagonale));}
         }
 
-        for(int i = diagonaleValeurAbsolue;i < plateau.length; i++){
-//            for(int j = i;j < plateau.length; j++){
-              System.out.println(" i:"+i+" j"+(i-diagonaleValeurAbsolue));
-//            }
+        System.out.println("diagonale : " + diagonale+" nb dames : "+compteurDames);
 
-        }
-        return true;
+        return (compteurDames < 2);
+
     }
 }

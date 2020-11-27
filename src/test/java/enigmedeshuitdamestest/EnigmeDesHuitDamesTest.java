@@ -127,9 +127,9 @@ public class EnigmeDesHuitDamesTest {
         plateauJeu1.verifierPasPlusUneDameDiagonaleDroite(1);
         plateauJeu1.verifierPasPlusUneDameDiagonaleDroite(2);
         plateauJeu1.verifierPasPlusUneDameDiagonaleDroite(3);
-//        System.out.println(plateauJeu1.verifierPasPlusUneDameColonne(0));
-//        System.out.println(plateauJeu1.verifierPasPlusUneDameColonne(3));
-
+        Assertions.assertThat(plateauJeu1.verifierPasPlusUneDameDiagonaleDroite(0)).isFalse();
+        Assertions.assertThat(plateauJeu1.verifierPasPlusUneDameDiagonaleDroite(1)).isTrue();
+        Assertions.assertThat(plateauJeu1.verifierPasPlusUneDameDiagonaleDroite(2)).isTrue();
 
     }
 
